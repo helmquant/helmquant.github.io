@@ -14,10 +14,10 @@ Marketing landing page for Helm Quant — `helmquant.in`. Static-exported Next.j
 ## Local development
 
 ```bash
-npm install
+yarn install
 cp .env.example .env.local
 # (optional) paste your Beehiiv embed iframe src URL into .env.local
-npm run dev
+yarn dev
 ```
 
 Open <http://localhost:3000>.
@@ -130,6 +130,8 @@ git add .
 git commit -m "Update landing page copy"
 git push
 ```
+
+Note: the GitHub Actions workflow uses `yarn install --frozen-lockfile` and `yarn build`. The committed `yarn.lock` is the source of truth — keep it in version control.
 
 ## Beehiiv iframe — getting the embed URL
 
