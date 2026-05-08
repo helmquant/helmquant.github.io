@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="Helm Quant horizontal logo lockup">
+  <title>Helm Quant — horizontal lockup (mark + wordmark)</title>
+  <desc>Compass rose mark on the left, "Helm Quant" wordmark on the right. Use for website headers, email signatures, document banners.</desc>
+  <style>
+    .fl { fill: #0D1B2A; }
+    .gold-fl { fill: #C49A4A; }
+    .tx { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; fill: #0D1B2A; font-weight: 500; letter-spacing: 0.02em; }
+    @media (prefers-color-scheme: dark) {
+      .fl { fill: #F2F4F7; }
+      .tx { fill: #F2F4F7; }
+    }
+  </style>
+  <g transform="translate(120, 100)">
+    <g class="fl">
+      <polygon points="0,-72 7.2,-11.5 -7.2,-11.5"/>
+      <polygon points="72,0 11.5,5.8 11.5,-5.8"/>
+      <polygon points="0,72 5.8,11.5 -5.8,11.5"/>
+      <polygon points="-72,0 -11.5,5.8 -11.5,-5.8"/>
+    </g>
+    <g class="fl" opacity="0.55">
+      <polygon points="40.3,-40.3 8.6,-2.9 2.9,-8.6"/>
+      <polygon points="-40.3,40.3 -8.6,2.9 -2.9,8.6"/>
+      <polygon points="-40.3,-40.3 -8.6,-2.9 -2.9,-8.6"/>
+    </g>
+    <polygon points="61.1,61.1 12.2,4.1 4.1,12.2" class="gold-fl"/>
+    <circle cx="0" cy="0" r="5.8" class="fl"/>
+  </g>
+  <text x="230" y="118" text-anchor="start" class="tx" style="font-size: 64px;">Helm Quant</text>
+</svg>

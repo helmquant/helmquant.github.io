@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Helm Quant favicon">
+  <title>Helm Quant — favicon (32px)</title>
+  <style>
+    .fl { fill: #0D1B2A; }
+    .gold-fl { fill: #C49A4A; }
+    @media (prefers-color-scheme: dark) { .fl { fill: #F2F4F7; } }
+  </style>
+  <g transform="translate(16, 16)">
+    <g class="fl">
+      <polygon points="0,-14 1.4,-2.2 -1.4,-2.2"/>
+      <polygon points="14,0 2.2,1.1 2.2,-1.1"/>
+      <polygon points="0,14 1.1,2.2 -1.1,2.2"/>
+      <polygon points="-14,0 -2.2,1.1 -2.2,-1.1"/>
+    </g>
+    <polygon points="11.9,11.9 2.4,0.79 0.79,2.4" class="gold-fl"/>
+    <circle cx="0" cy="0" r="1.2" class="fl"/>
+  </g>
+</svg>

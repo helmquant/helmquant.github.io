@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0d1b2a;
+  --foreground: #f2f4f7;
+  --navy-light: #14253b;
+  --gold: #c49a4a;
+  --gold-dim: #a88340;
+  --muted: #94a3b8;
+  --muted-dim: #64748b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy-light: var(--navy-light);
+  --color-gold: var(--gold);
+  --color-gold-dim: var(--gold-dim);
+  --color-muted: var(--muted);
+  --color-muted-dim: var(--muted-dim);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--background);
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Helm Quant compass rose mark">
+  <title>Helm Quant — primary mark</title>
+  <desc>Compass rose with four cardinal points, three small intercardinals, and an elongated gold spike pointing south-east.</desc>
+  <style>
+    .fl { fill: #0D1B2A; }
+    .gold-fl { fill: #C49A4A; }
+    @media (prefers-color-scheme: dark) { .fl { fill: #F2F4F7; } }
+  </style>
+  <g transform="translate(128, 128)">
+    <g class="fl">
+      <polygon points="0,-100 10,-16 -10,-16"/>
+      <polygon points="100,0 16,8 16,-8"/>
+      <polygon points="0,100 8,16 -8,16"/>
+      <polygon points="-100,0 -16,8 -16,-8"/>
+    </g>
+    <g class="fl" opacity="0.55">
+      <polygon points="56,-56 12,-4 4,-12"/>
+      <polygon points="-56,56 -12,4 -4,12"/>
+      <polygon points="-56,-56 -12,-4 -4,-12"/>
+    </g>
+    <polygon points="84.85,84.85 16.97,5.66 5.66,16.97" class="gold-fl"/>
+    <circle cx="0" cy="0" r="8" class="fl"/>
+  </g>
+</svg>
