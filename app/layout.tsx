@@ -37,6 +37,14 @@ export const metadata: Metadata = {
     siteName: "Helm Quant",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Helm Quant — AI-powered trading tools for Indian markets",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -44,6 +52,7 @@ export const metadata: Metadata = {
     description:
       "Indicators, daily market intel, and a weekly newsletter on building AI tools for Indian markets.",
     creator: "@helmquant",
+    images: ["/og-image.png"],
   },
   icons: {
     icon: "/icon.svg",
