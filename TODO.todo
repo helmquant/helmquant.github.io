@@ -1,0 +1,76 @@
+helmquant-site — TODO
+═══════════════════════════════════════════════════════════════════════════════
+Live URL:     https://helmquant.in
+Repo:         https://github.com/helmquant/helmquant.github.io
+Tech:         Next.js 16, React 19, Tailwind v4, GitHub Pages CI
+Last updated: 2026-05-19
+
+Mark ☐ as ✔ when done. Add @done(date) tag if you want to keep history.
+Use @critical for "do this next" and @blocked for "waiting on X".
+
+
+Phase 0 — Foundation (DONE):
+  ✔ Scaffold Next.js 16 + Tailwind v4 project @done(2026-05-08)
+  ✔ Build landing page UI + components @done(2026-05-08)
+  ✔ Wire Beehiiv email capture (iframe pattern) @done(2026-05-09)
+  ✔ Configure GitHub Pages with Actions source @done(2026-05-09)
+  ✔ Rename repo to helmquant.github.io @done(2026-05-09)
+  ✔ Configure GoDaddy DNS (A records to GitHub Pages) @done(2026-05-09)
+  ✔ Enforce HTTPS, verify cert on both helmquant.in and www @done(2026-05-09)
+  ✔ Rename WorldMonitor → MarketCompass across site source @done(2026-05-19)
+  ✔ Deploy MarketCompass rename live @done(2026-05-19)
+
+
+Phase 1 — Pre-ATE-launch polish (Mon May 18 → Tue May 26):
+  ☐ Hero section copy review — does it land for visitors who DON'T know Helm Quant yet? @critical
+  ☐ "Why I'm building this" link — currently to Notion? Decide: public blog page or stay private
+  ☐ Add a "Products" anchor section listing ATE / ACE / MarketCompass with status badges (Live / Coming Jun 10 / In Build)
+  ☐ Add a Gumroad CTA on the ATE card (links to product page once Gumroad SKU is public)
+  ☐ Add Twitter/X icon + handle (@helmquant) in footer
+  ☐ Add GitHub icon (helmquant org) in footer
+  ☐ Favicon — compass-rose SVG; verify it shows up in browser tab + Apple touch icon
+  ☐ OG image — 1200×630 dark-navy + compass + "Helm Quant — AI trading tools" wordmark for X/LinkedIn cards
+  ☐ Verify mobile responsive (iPhone 15, Pixel widths) — open in DevTools, check overflow
+  ☐ Lighthouse audit — fix any below-90 score (perf, accessibility, SEO)
+
+
+Phase 2 — Newsletter integration (BLOCKED on Beehiiv KYC):
+  ☐ Verify Beehiiv account (Stripe Identity step) @blocked
+  ☐ Get the working subscribe URL (the embed iframe ID Beehiiv expects)
+  ☐ Add NEXT_PUBLIC_BEEHIIV_EMBED_URL as GitHub Actions repo variable
+  ☐ Update the email-capture component to point at real URL (currently a placeholder)
+  ☐ Test sign-up flow end-to-end from helmquant.in
+  ☐ Trigger redeploy to pick up the env var
+
+
+Phase 3 — Post-launch content (Wed May 28+):
+  ☐ Add a "case study" page once you have ≥1 ATE buyer testimonial
+  ☐ Add ATE backtest report preview (1-2 numbers + chart screenshot, with link to full PDF for buyers)
+  ☐ Add a /blog or /writing section for long-form (deferred — newsletter is your long-form for now)
+  ☐ Update Products section: ACE card from "In Build" → "Coming Jun 10" → "Live"
+  ☐ Add MarketCompass card when v0 stable (initially just "Personal tool, public version later")
+
+
+Phase 4 — MarketCompass v1 integration (Month 3-4+):
+  ☐ Build /compass dashboard route (single-page Next.js app)
+  ☐ Connect to MarketCompass FastAPI backend (deferred until SaaS rebuild)
+  ☐ Auth integration (Clerk or Supabase)
+  ☐ Live brief view + history archive
+  ☐ Sub-domain: compass.helmquant.in (or keep at /compass — decide later)
+
+
+Cross-cutting / housekeeping:
+  ☐ Add a sitemap.xml — Next.js can auto-generate
+  ☐ Add robots.txt — allow search engines
+  ☐ Add Plausible or Umami analytics (privacy-friendly, no cookies) — defer until launch
+  ☐ Add a `/now` page (Derek Sivers style — "what I'm focused on right now")
+  ☐ Set up Vercel Preview deployments for PRs (currently only main → prod)
+
+
+Backlog / nice-to-have:
+  ☐ Dark/light mode toggle
+  ☐ Pricing comparison table — ATE vs Bundle vs Helm Quant Pro
+  ☐ Affiliate signup flow (Phase 4+)
+  ☐ Customer logo wall (after 20+ buyers)
+  ☐ A "Built with" section listing the stack (Next.js, Tailwind, Vercel, etc.) — credibility for technical buyers
+  ☐ Internationalization — defer until proven demand outside India
