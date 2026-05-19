@@ -42,7 +42,7 @@ export default function Home() {
               status="ATE shipping May 2026"
             />
             <ProductBlock
-              title="WorldMonitor"
+              title="MarketCompass"
               description="A daily AI-synthesized markets brief: Indian and US markets, macro events, sector moves, news with sourced analysis. SaaS later this year."
               status="In private build"
             />

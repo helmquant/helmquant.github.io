@@ -68,7 +68,7 @@ Defined as CSS custom properties in `app/globals.css` and exposed via Tailwind v
 ### 1. Push to GitHub
 
 ```bash
-cd "/Users/yeshu/Work/Helm Quant/helmquant-site"
+cd "/Users/yeshu/Work/HelmQuant/helmquant-site"
 git init -b main
 git add .
 git commit -m "Initial Helm Quant landing"
@@ -146,8 +146,8 @@ The iframe will load styled by Beehiiv. It won't perfectly match the site's desi
 ## What this site is *not*
 
 - Not a blog. Long-form content goes in the newsletter (Beehiiv) and eventually a separate `helmquant-blog` repo.
-- Not a product page. ATE indicator sells through Gumroad. WorldMonitor will live at `app.helmquant.in` (separate Next.js app, separate repo).
+- Not a product page. ATE indicator sells through Gumroad. MarketCompass will live at `app.helmquant.in` (separate Next.js app, separate repo).
 
 ## License
 
-Private project. Don't open-source without considering whether the code reveals anything sensitive about ATE or WorldMonitor pipelines. (The repo CAN be public for free GitHub Pages — that's fine. Just be deliberate about what content you include.)
+Private project. Don't open-source without considering whether the code reveals anything sensitive about ATE or MarketCompass pipelines. (The repo CAN be public for free GitHub Pages — that's fine. Just be deliberate about what content you include.)
