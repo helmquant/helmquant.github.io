@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import EmailCapture from "@/components/EmailCapture";
 
 export default function Home() {
@@ -37,19 +38,20 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-3 gap-12 md:gap-16">
             <ProductBlock
-              title="Indicators"
-              description="Premium PineScript indicators for TradingView. Backtested across Nifty, BankNifty, Gold, and Silver. Full strategy guide and setup video with every purchase."
-              status="ATE shipping May 2026"
+              title="ATE — Adaptive Trend Engine"
+              description="Self-tuning trend-following indicator for TradingView. 300+ parameter combinations tested on every bar. Backtested across Nifty, BankNifty, Gold, and Silver — drawdowns shown openly."
+              status="Launching May 27 · 7-day free trial open"
+              href="/ate"
+            />
+            <ProductBlock
+              title="ACE — Adaptive Consensus Engine"
+              description="Ratings-based consensus indicator. Built to be uncorrelated alpha alongside ATE — when one waits, the other trades. Bundle SKU launches with it."
+              status="Launching June 10"
             />
             <ProductBlock
               title="MarketCompass"
-              description="A daily AI-synthesized markets brief: Indian and US markets, macro events, sector moves, news with sourced analysis. SaaS later this year."
+              description="Daily AI-synthesized markets brief — overnight US, risk gauges (VIX, MOVE, DXY), India-relevant news, watchlist levels. Inbox by 08:30 IST."
               status="In private build"
-            />
-            <ProductBlock
-              title="Newsletter"
-              description="Weekly notes on what I&rsquo;m building, what&rsquo;s working in the markets, and what I&rsquo;m learning while making AI tools for traders."
-              status="Sundays · 9am IST"
             />
           </div>
         </div>
@@ -105,18 +107,31 @@ function ProductBlock({
   title,
   description,
   status,
+  href,
 }: {
   title: string;
   description: string;
   status: string;
+  href?: string;
 }) {
-  return (
-    <div>
+  const content = (
+    <>
       <h3 className="text-xl font-medium mb-3">{title}</h3>
       <p className="text-muted leading-relaxed mb-4 text-[15px]">
         {description}
       </p>
       <p className="text-sm text-gold">{status}</p>
-    </div>
+    </>
   );
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className="block p-1 -m-1 rounded-md hover:bg-white/[0.02] transition-colors"
+      >
+        {content}
+      </Link>
+    );
+  }
+  return <div>{content}</div>;
 }
