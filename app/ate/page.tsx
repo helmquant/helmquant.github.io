@@ -143,6 +143,14 @@ export default function AtePage() {
             live-drag estimator. The standout non-daily cell: BTCUSD 4h
             (+160.1%, RF 37.6) — highest 4h Return Factor in the matrix.
           </p>
+          <div className="text-center mt-6">
+            <Link
+              href="/ate/backtest"
+              className="inline-block px-6 py-2.5 rounded-md border border-gold/40 text-gold font-medium hover:bg-gold/5 transition-colors"
+            >
+              Read the full backtest report →
+            </Link>
+          </div>
         </div>
       </section>
 
