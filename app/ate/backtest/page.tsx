@@ -488,63 +488,106 @@ function Obs({ n, title, children }: { n: string; title: string; children: React
 
 function InstrumentSection({ row, index }: { row: Row; index: number }) {
   const cells = row.cells;
+  const intradayTimeframes: { tf: string; label: string }[] = [
+    { tf: "5m", label: "5m" },
+    { tf: "15m", label: "15m" },
+    { tf: "1h", label: "1h" },
+    { tf: "4h", label: "4h" },
+  ];
+
   return (
-    <div className={index > 0 ? "mt-12 pt-12 border-t border-white/5" : ""}>
+    <div className={index > 0 ? "mt-14 pt-14 border-t border-white/5" : ""}>
       <h3 className="text-xl font-medium mb-5">{row.instrument}</h3>
-      <div className="grid md:grid-cols-2 gap-6 items-start">
-        <div>
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-white/10 text-muted-dim text-left">
-                <th className="py-2 pr-3">TF</th>
-                <th className="py-2 px-3 text-right">P&amp;L</th>
-                <th className="py-2 px-3 text-right">DD</th>
-                <th className="py-2 px-3 text-right">PF</th>
-                <th className="py-2 pl-3 text-right">RF</th>
-              </tr>
-            </thead>
-            <tbody className="text-muted">
-              {["5m", "15m", "1h", "4h", "1D"].map((tf) => {
-                const c = cells[tf];
-                return (
-                  <tr key={tf} className="border-b border-white/5">
-                    <td className={`py-2 pr-3 font-mono ${tf === "1D" ? "text-gold" : ""}`}>{tf}</td>
-                    {c ? (
-                      <>
-                        <td className={`text-right py-2 px-3 ${tf === "1D" ? "text-gold font-medium" : ""}`}>{c.pnl}</td>
-                        <td className="text-right py-2 px-3">{c.dd}</td>
-                        <td className="text-right py-2 px-3">{c.pf}</td>
-                        <td className="text-right py-2 pl-3">{c.rf}</td>
-                      </>
-                    ) : (
-                      <>
-                        <td colSpan={4} className="text-right py-2 text-muted-dim italic">no qualifying trades</td>
-                      </>
-                    )}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          {cells["1D"]?.note && (
-            <p className="text-xs text-gold mt-3">→ {cells["1D"].note}</p>
-          )}
-          {cells["4h"]?.note && (
-            <p className="text-xs text-muted-dim mt-1">⚠ 4h: {cells["4h"].note}</p>
-          )}
-        </div>
-        <div>
-          <Image
-            src={`/backtests/${row.folder}/daily.webp`}
-            alt={`${row.instrument} daily chart with ATE running, showing Backtest Performance table`}
-            width={1600}
-            height={1006}
-            className="rounded-lg border border-white/5"
-          />
-          <p className="text-xs text-muted-dim mt-2 text-center">
-            {row.instrument} 1D — chart with ATE Backtest Performance table visible
-          </p>
-        </div>
+
+      {/* Stats table on top */}
+      <div className="overflow-x-auto mb-6">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-white/10 text-muted-dim text-left">
+              <th className="py-2 pr-3">TF</th>
+              <th className="py-2 px-3 text-right">P&amp;L</th>
+              <th className="py-2 px-3 text-right">DD</th>
+              <th className="py-2 px-3 text-right">W/T</th>
+              <th className="py-2 px-3 text-right">PF</th>
+              <th className="py-2 px-3 text-right">RF</th>
+              <th className="py-2 pl-3 text-right">Data</th>
+            </tr>
+          </thead>
+          <tbody className="text-muted">
+            {["5m", "15m", "1h", "4h", "1D"].map((tf) => {
+              const c = cells[tf];
+              return (
+                <tr key={tf} className="border-b border-white/5">
+                  <td className={`py-2 pr-3 font-mono ${tf === "1D" ? "text-gold" : ""}`}>{tf}</td>
+                  {c ? (
+                    <>
+                      <td className={`text-right py-2 px-3 ${tf === "1D" ? "text-gold font-medium" : ""}`}>{c.pnl}</td>
+                      <td className="text-right py-2 px-3">{c.dd}</td>
+                      <td className="text-right py-2 px-3">{c.trades}</td>
+                      <td className="text-right py-2 px-3">{c.pf}</td>
+                      <td className="text-right py-2 px-3">{c.rf}</td>
+                      <td className="text-right py-2 pl-3 text-muted-dim">{c.data}</td>
+                    </>
+                  ) : (
+                    <td colSpan={6} className="text-right py-2 text-muted-dim italic">no qualifying trades</td>
+                  )}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      {cells["1D"]?.note && (
+        <p className="text-sm text-gold mb-2">→ {cells["1D"].note}</p>
+      )}
+      {cells["4h"]?.note && (
+        <p className="text-xs text-muted-dim mb-2">⚠ 4h: {cells["4h"].note}</p>
+      )}
+
+      {/* Chart full width below table */}
+      <a
+        href={`/backtests/${row.folder}/daily.webp`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block group"
+      >
+        <Image
+          src={`/backtests/${row.folder}/daily.webp`}
+          alt={`${row.instrument} daily chart with ATE running, showing Backtest Performance table in the top-right corner`}
+          width={1600}
+          height={1006}
+          className="rounded-lg border border-white/5 w-full group-hover:border-gold/30 transition-colors"
+        />
+        <p className="text-xs text-muted-dim mt-2 text-center group-hover:text-gold transition-colors">
+          {row.instrument} 1D — click to open at full resolution
+        </p>
+      </a>
+
+      {/* Other timeframes as plain text links — opens the WebP in a new tab */}
+      <div className="text-xs text-muted-dim mt-4 text-center">
+        <span className="mr-3">Other timeframes:</span>
+        {intradayTimeframes.map((t, i) => {
+          const c = cells[t.tf];
+          if (!c) {
+            return (
+              <span key={t.tf} className="mr-3 line-through opacity-50">
+                {t.label}
+              </span>
+            );
+          }
+          return (
+            <a
+              key={t.tf}
+              href={`/backtests/${row.folder}/${t.tf}.webp`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-3 hover:text-gold transition-colors underline decoration-dotted underline-offset-4"
+            >
+              {t.label}
+            </a>
+          );
+        })}
       </div>
     </div>
   );
