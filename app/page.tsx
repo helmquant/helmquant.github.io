@@ -39,7 +39,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-12 md:gap-16">
             <ProductBlock
               title="ATE — Adaptive Trend Engine"
-              description="Self-tuning trend-following indicator for TradingView. 300+ parameter combinations tested on every bar. Backtested across Nifty, BankNifty, Gold, and Silver — drawdowns shown openly."
+              description="Self-tuning trend-following indicator for TradingView. 300+ parameter combinations tested on every bar. Backtested across 10 instruments × 5 timeframes — Indian indices, US indices, commodities, crypto, FX. Drawdowns shown openly."
               status="Launching May 27 · 7-day free trial open"
               href="/ate"
             />

@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "ATE — Adaptive Trend Engine",
   description:
-    "Self-tuning trend-following indicator for TradingView. Backtested across Nifty, BankNifty, Gold (XAUUSD), and Silver (XAGUSD) — drawdowns shown honestly. ₹499/mo or ₹4,999/yr. 7-day free trial.",
+    "Self-tuning trend-following indicator for TradingView. Backtested across 10 instruments × 5 timeframes — Nifty, BankNifty, Gold, Silver, SPX, NDX, DJI, BTCUSD, UKOIL, USDINR. Drawdowns shown honestly. ₹499/mo or ₹4,999/yr. 7-day free trial.",
   openGraph: {
     title: "ATE — Adaptive Trend Engine · Helm Quant",
     description:
@@ -68,11 +68,44 @@ export default function AtePage() {
 
       {/* ─── BACKTEST HIGHLIGHTS ─────────────────────────────────────────── */}
       <section className="px-6 py-16 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-sm uppercase tracking-widest text-muted-dim text-center mb-12">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-sm uppercase tracking-widest text-muted-dim text-center mb-3">
             Backtest performance · daily timeframe
           </h2>
+          <p className="text-sm text-muted-dim text-center mb-12">
+            8 of 10 instruments shown — full 50-cell matrix (10 × 5 timeframes) in the report PDF.
+          </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <BacktestCard
+              instrument="UKOIL (Brent)"
+              pnl="+259.3%"
+              drawdown="11.2%"
+              trades={130}
+              years="94.4y"
+              highlight="Highest return"
+            />
+            <BacktestCard
+              instrument="DJI"
+              pnl="+176.7%"
+              drawdown="7.2%"
+              trades={617}
+              years="129.8y"
+            />
+            <BacktestCard
+              instrument="SPX"
+              pnl="+170.9%"
+              drawdown="7.2%"
+              trades={577}
+              years="149.5y"
+            />
+            <BacktestCard
+              instrument="Silver (XAGUSD)"
+              pnl="+135.1%"
+              drawdown="11.2%"
+              trades={335}
+              years="155.3y"
+              highlight="Honest drawdown"
+            />
             <BacktestCard
               instrument="Nifty"
               pnl="+109.6%"
@@ -82,34 +115,33 @@ export default function AtePage() {
               highlight="Best risk-adjusted"
             />
             <BacktestCard
+              instrument="Gold (XAUUSD)"
+              pnl="+107.0%"
+              drawdown="4.8%"
+              trades={276}
+              years="123.3y"
+            />
+            <BacktestCard
+              instrument="BTCUSD"
+              pnl="+104.4%"
+              drawdown="4.3%"
+              trades={27}
+              years="11.2y"
+              highlight="Highest PF (4.5)"
+            />
+            <BacktestCard
               instrument="BankNifty"
               pnl="+77.9%"
               drawdown="3.4%"
               trades={137}
               years="26.2y"
             />
-            <BacktestCard
-              instrument="Gold (XAUUSD)"
-              pnl="+107.0%"
-              drawdown="4.8%"
-              trades={276}
-              years="123.3y"
-              highlight="Longest history"
-            />
-            <BacktestCard
-              instrument="Silver (XAGUSD)"
-              pnl="+135.1%"
-              drawdown="11.2%"
-              trades={335}
-              years="155.3y"
-              highlight="Highest return"
-            />
           </div>
-          <p className="text-sm text-muted-dim text-center mt-10 max-w-2xl mx-auto leading-relaxed">
-            Numbers are gross of execution costs. The full backtest report
-            includes a per-instrument live-drag estimator + 16 more cells
-            (5m / 15m / 1h / 4h alongside daily). Delivered as PDF with every
-            subscription.
+          <p className="text-sm text-muted-dim text-center mt-10 max-w-3xl mx-auto leading-relaxed">
+            Plus NDX (+61.5%) and USDINR (+18.2%) in the full report. Numbers
+            are gross of execution costs — the report includes a per-instrument
+            live-drag estimator. The standout non-daily cell: BTCUSD 4h
+            (+160.1%, RF 37.6) — highest 4h Return Factor in the matrix.
           </p>
         </div>
       </section>
@@ -230,7 +262,7 @@ export default function AtePage() {
           <div className="space-y-8">
             <FaqItem
               q="What instruments and timeframes does ATE work on?"
-              a="The engine is market-agnostic — it works on any liquid instrument with enough TradingView history. The published backtest covers Nifty, BankNifty (NSE), Gold (XAUUSD spot), and Silver (XAGUSD spot) across 5m / 15m / 1h / 4h / 1D. Daily is the strongest cell across every instrument tested."
+              a="The engine is market-agnostic — it works on any liquid instrument with enough TradingView history. The published backtest covers 10 instruments × 5 timeframes (50 cells): Nifty, BankNifty (NSE), Gold (XAUUSD spot), Silver (XAGUSD spot), SPX, NDX, DJI, BTCUSD, UKOIL (Brent), and USDINR. Daily is the strongest cell on 9 of 10 instruments — BTCUSD's 4h cell is the exception and a standout in its own right."
             />
             <FaqItem
               q="Do I need to tune any settings?"
