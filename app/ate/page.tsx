@@ -97,7 +97,7 @@ export default function AtePage() {
             Backtest performance · daily timeframe
           </h2>
           <p className="text-sm text-muted-dim text-center mb-12">
-            8 of 10 instruments shown — full 50-cell matrix (10 × 5 timeframes) in the report PDF.
+            8 of 10 instruments shown — the full 50-cell matrix (10 × 5 timeframes) is published openly at <Link href="/ate/backtest" className="text-gold hover:text-gold-dim transition-colors">helmquant.in/ate/backtest</Link>.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <BacktestCard
@@ -218,7 +218,7 @@ export default function AtePage() {
               <strong className="text-foreground">Strategy guide (PDF)</strong> — 6,500 words: logic, entry/exit rules, risk-management math, common mistakes, FAQ
             </BundleItem>
             <BundleItem>
-              <strong className="text-foreground">Full backtest report (PDF)</strong> — 20 cells, per-cell analysis, gross-of-costs framing + live-drag estimator
+              <strong className="text-foreground">Full backtest report</strong> — 50 cells (10 instruments × 5 timeframes), per-cell analysis, gross-of-costs framing + live-drag estimator. Published openly at <Link href="/ate/backtest" className="text-gold hover:text-gold-dim transition-colors">helmquant.in/ate/backtest</Link> — read it before you subscribe.
             </BundleItem>
             <BundleItem>
               <strong className="text-foreground">Setup video</strong> — 6-minute walkthrough: install → settings → first alert → reading signals
