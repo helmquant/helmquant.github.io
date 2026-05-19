@@ -27,8 +27,32 @@ const LAUNCH_LIVE = false;
 export default function AtePage() {
   return (
     <main className="flex-1">
+      {/* ─── TOP NAV ─────────────────────────────────────────────────────── */}
+      <header className="px-6 pt-6 pb-2">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-sm text-muted-dim hover:text-foreground transition-colors"
+          >
+            <Image
+              src="/helmquant_mark_primary.svg"
+              alt=""
+              width={20}
+              height={20}
+            />
+            <span>Helm Quant</span>
+          </Link>
+          <Link
+            href="/ate/backtest"
+            className="text-sm text-muted-dim hover:text-gold transition-colors"
+          >
+            Backtest report →
+          </Link>
+        </div>
+      </header>
+
       {/* ─── HERO ────────────────────────────────────────────────────────── */}
-      <section className="px-6 pt-20 pb-16 md:pt-28 md:pb-20">
+      <section className="px-6 pt-12 pb-16 md:pt-16 md:pb-20">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-sm uppercase tracking-widest text-gold mb-6">
             {LAUNCH_LIVE ? "Now live" : "Launching Wed May 27, 2026"}

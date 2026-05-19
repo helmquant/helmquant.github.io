@@ -138,11 +138,35 @@ const MATRIX: Row[] = [
 export default function AteBacktestPage() {
   return (
     <main className="flex-1">
+      {/* ─── TOP NAV ─────────────────────────────────────────────────────── */}
+      <header className="px-6 pt-6 pb-2">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-sm text-muted-dim hover:text-foreground transition-colors"
+          >
+            <Image
+              src="/helmquant_mark_primary.svg"
+              alt=""
+              width={20}
+              height={20}
+            />
+            <span>Helm Quant</span>
+          </Link>
+          <Link
+            href="/ate"
+            className="text-sm text-muted-dim hover:text-gold transition-colors"
+          >
+            ← Back to ATE
+          </Link>
+        </div>
+      </header>
+
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="px-6 pt-16 pb-12 md:pt-24 md:pb-16">
+      <section className="px-6 pt-10 pb-12 md:pt-14 md:pb-16">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm text-muted-dim mb-3">
-            <Link href="/ate" className="hover:text-foreground transition-colors">← Back to ATE</Link>
+          <p className="text-sm uppercase tracking-widest text-gold mb-4">
+            ATE · Live backtest data
           </p>
           <h1 className="text-3xl md:text-5xl font-medium tracking-tight mb-5">
             ATE Backtest Report
